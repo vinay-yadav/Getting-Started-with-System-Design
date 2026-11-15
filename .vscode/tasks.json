@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Java in Docker",
+      "type": "shell",
+      "command": "docker run --rm -v \"${workspaceFolder}\":/app -w /app java-dev sh run-java.sh \"${relativeFile}\"",
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reuseTerminalPanel": true }
+    }
+  ]
+}
