@@ -4,9 +4,24 @@
     {
       "label": "Run Java in Docker",
       "type": "shell",
-      "command": "docker run --rm -v \"${workspaceFolder}\":/app -w /app java-dev sh run-java.sh \"${relativeFile}\"",
+      "command": "DOCKER_CLI_HINTS=false docker run --rm -v \"${workspaceFolder}\":/app -w /app java-dev sh run-java.sh \"${relativeFile}\"",
       "group": { "kind": "build", "isDefault": true },
-      "presentation": { "reuseTerminalPanel": true }
+      "presentation": {
+        "reuseTerminalPanel": true,
+        "clear": true,
+        "focus": true
+      },
+      "problemMatcher": {
+        "owner": "java-docker",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*\\.java):(\\d+): (error|warning): (.*)$",
+          "file": 1,
+          "line": 2,
+          "severity": 3,
+          "message": 4
+        }
+      }
     }
   ]
 }
