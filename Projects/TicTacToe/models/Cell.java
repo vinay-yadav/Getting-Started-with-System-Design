@@ -5,6 +5,13 @@ public class Cell {
     private int column;
     private Player player;
     private CellState cellState;
+
+    public Cell(int row, int column) {
+        this.row = row;
+        this.column = column;
+        this.player = null;
+        this.cellState = CellState.EMPTY;
+    }
     
     public int getRow() {
         return row;
@@ -29,5 +36,13 @@ public class Cell {
     }
     public void setCellState(CellState cellState) {
         this.cellState = cellState;
+    }
+
+    public void display() {
+        if (player == null) {
+            System.out.print("| - |");
+        } else {
+            System.out.printf("| " + this.player.getSymbol().getSymbol() + " |");
+        }
     }
 }

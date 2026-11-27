@@ -23,23 +23,24 @@ public class GameController {
             .build();
     }
 
-    public void displayBoard(Game game) {
-
+    public void displayBoard(Game game) {        
+        game.printBoard();
     }
 
     public void makeMove(Game game) {
-
+        game.makeMove();
     }
 
     public GameState checkState(Game game) {
-        return null;
+        return game.getGameState();
     }
 
     public Player getWinner(Game game) {
-        return null;
+        return game.getWinner();
     }
 
     public void undo(Game game) {
-
+        // No business logic in the controller
+        game.undo();
     }
 }
